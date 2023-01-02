@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <script src="https://kit.fontawesome.com/34ad640c13.js" crossorigin="anonymous"></script>
+    <link href="/home.css"  rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+    <div id="main-container">
+        <h1 class="text-color"  id="app-title">TODO App</h1>  
+
+        <!-- *Separator  -->
+        <div class="horizontal-line"></div>
+
+    <form action="/add-task" method="POST" name="addTask">
+
+        <div id="description">
+                <label for="desc-inpput">Description</label>
+                <input type="text" id="desc-input" name="description" placeholder="Write in your todo tasks.." required>
+        </div>
+
+         <!-- *Separator -->
+        <div class="horizontal-line"></div>
+
+        <div id="CatandDate">
+            <div id="category">
+                <label for="category"> Category </label>
+                <select name="category" id="category" >
+                    <option value="n/a"> Choose a category </option>
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                    <option value="education">Education</option>
+                    <option value="hobby">Hobby</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- *Separator -->
+            <div class="vertical-line"></div>
+            
+            <div id="date">
+                    <label for="date">Due Date</label>
+                    <input type="date" id="date" name="date">
+            </div>
+        </div>
+
+          <!-- *Separator -->
+         <div class="horizontal-line"></div>
+
+        <div id="action-buttons">
+             
+            <!-- *button to add a new task and sumbit form -->
+             <button id="add-button" type="submit"> 
+                <i class="fas fa-plus"></i>
+                <span>Add Task</span> 
+            </button>
+
+            <!-- *button to delete all the selected tasks -->
+            <button id="delete-button" type="submit" form="tasks-list-form">
+                <i class="fas fa-trash"></i>
+                <span>Delete Tasks</span>
+            </button>
+        </div>
+
+    </form>
+
+        <!-- *lists the task list entered by the user -->
+        
+        <form action="/delete-task" method="get">
+            <div id="taskLists">
+                <input type="checkbox" id="task" name="" value="">
+                <label for="">cxc </label><br>
+            </div>
+        </form>
+    </div>
+ 
+
+</body>
+</html>
