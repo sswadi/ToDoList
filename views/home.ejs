@@ -17,7 +17,8 @@
         <!-- *Separator  -->
         <div class="horizontal-line"></div>
 
-    <form action="/add-task" method="POST" name="addTask">
+    <!-- <form action="/add-task" method="POST" name="addTask"> -->
+        <form action="/add-task" method="POST" name="addTask"> 
 
         <div id="description">
                 <label for="desc-inpput">Description</label>
@@ -50,33 +51,67 @@
         </div>
 
           <!-- *Separator -->
-         <div class="horizontal-line"></div>
+        <div class="horizontal-line"></div>
 
         <div id="action-buttons">
              
+        <!-- <form action="/add-task"" method="get" name="addTask"></form> -->
             <!-- *button to add a new task and sumbit form -->
-             <button id="add-button" type="submit"> 
+             <button id="add-button" type="submit" method="post"> 
                 <i class="fas fa-plus"></i>
-                <span>Add Task</span> 
+                <span>Add Tasks</span> 
             </button>
+        <!-- </form> -->
 
-            <!-- *button to delete all the selected tasks -->
-            <button id="delete-button" type="submit" form="tasks-list-form">
-                <i class="fas fa-trash"></i>
-                <span>Delete Tasks</span>
-            </button>
+           
         </div>
 
     </form>
 
+     <!-- *button to delete all the selected tasks -->
+     <form action="/delete-task" type="button" method="get">
+        <button id="delete-button">
+            <i class="fas fa-trash"></i>
+            <span>Delete Tasks</span>
+        </button>
+    </form>
+
         <!-- *lists the task list entered by the user -->
         
-        <form action="/delete-task" method="get">
-            <div id="taskLists">
-                <input type="checkbox" id="task" name="" value="">
-                <label for="">cxc </label><br>
+        <!-- <form action="/delete-task" method="get"> -->
+           
+            <div class="taskLists">
+                <% for(let i of task_list){ %>
+                    <div class="list-of-todo">
+                    <div id="checkboxs">
+                        <input type="checkbox" name="<%= i.id %>">
+                    </div>
+                    <div class="des-day">
+                        <p id="task-description">
+                            <%= i.description %>
+                        </p>
+                        <div>
+                            <i class="fa-solid fa-calendar-days">
+                            </i>
+                            <p id="due-date">
+                                <%= i.date %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <p id="task-category">
+                            <%= i.category %>
+                        </p>
+                    </div>
+                </div>
+                <% } %>
             </div>
+            
+
         </form>
+
+
+    
     </div>
  
 
