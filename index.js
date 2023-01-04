@@ -56,51 +56,18 @@ app.post('/add-task', function(req,res){
 app.get('/delete-task', function(req,res){
 
 
-    // console.log('######',req.query);
-    var length=Object.keys(req.query).length;
-
-    // console.log(Object.keys(req.query)[2]);
-    for(let i=2;i<length;i++){
-        Task.findByIdAndDelete(Object.keys(req.query)[i],function(err){
+    // console.log('req **',req.query);
+    let deleteIds = JSON.parse(req.query.deleteIds);
+    for(let i=0; i<deleteIds.length; i++){
+        Task.findByIdAndDelete(deleteIds[i], function(err){
             if(err){
                 console.log("error in deleting the data from db",err);
                 return;
             }
-            
         });
     }
     return  res.redirect('back');
-
-   
-    // if(req.body.id == undefined){
-    //     console.log("User haven't selected any task to delete");
-    //     return res.redirect('back');
-    // }
-    // // If only one task is to be deleted
-    // else if(typeof(req.body.id) == 'string'){
-    //     Task.findByIdAndDelete(req.body.id, function(err){
-    //         if(err){
-    //             console.log("error deleting task ");
-    //             return;
-    //         }
-    //         return res.redirect('back');
-    //     });
-    // }
-    // // If multiple tasks are to be deleted
-    // else{
-    //     for(let i of req.body.id){
-    //         Task.findByIdAndDelete(i, function(err){
-    //             if(err){
-    //                 console.log("error deleting tasks ");
-    //                 return;
-    //             }
-    //         });
-    // }
-    // return res.redirect('back');
-
-    // }
 });
-
 
 
 //verifying if the connection is succcessful or not

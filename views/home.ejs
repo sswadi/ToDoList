@@ -7,6 +7,7 @@
     <title>TODO App</title>
     <script src="https://kit.fontawesome.com/34ad640c13.js" crossorigin="anonymous"></script>
     <link href="/home.css"  rel="stylesheet" type="text/css">
+    <script src="/todo.js"></script>
 
 </head>
 <body>
@@ -53,33 +54,24 @@
           <!-- *Separator -->
         <div class="horizontal-line"></div>
 
-        <div id="action-buttons">
-             
-        <!-- <form action="/add-task"" method="get" name="addTask"></form> -->
+        <div id="action-buttons"> 
             <!-- *button to add a new task and sumbit form -->
              <button id="add-button" type="submit" method="post"> 
                 <i class="fas fa-plus"></i>
                 <span>Add Tasks</span> 
-            </button>
-        <!-- </form> -->
-
-           
         </div>
 
     </form>
 
      <!-- *button to delete all the selected tasks -->
-     <form action="/delete-task" type="button" method="get">
+     <div id="action-buttons"> 
         <button id="delete-button">
             <i class="fas fa-trash"></i>
             <span>Delete Tasks</span>
         </button>
-    </form>
+    </div>
 
         <!-- *lists the task list entered by the user -->
-        
-        <!-- <form action="/delete-task" method="get"> -->
-           
             <div class="taskLists">
                 <% for(let i of task_list){ %>
                     <div class="list-of-todo">
@@ -87,16 +79,18 @@
                         <input type="checkbox" name="<%= i.id %>">
                     </div>
                     <div class="des-day">
-                        <p id="task-description">
-                            <%= i.description %>
-                        </p>
-                        <div>
-                            <i class="fa-solid fa-calendar-days">
-                            </i>
+                        
+                        <div class="date-desc">
+                            <i class="fa-solid fa-calendar-days"> </i>
                             <p id="due-date">
                                 <%= i.date %>
                             </p>
                         </div>
+
+                        <p id="task-description">
+                            <%= i.description %>
+                        </p>
+                        
                     </div>
                     <div class="category">
                         <p id="task-category">
@@ -116,4 +110,5 @@
  
 
 </body>
+<script src="/todo.js"></script>
 </html>
